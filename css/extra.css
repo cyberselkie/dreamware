@@ -1,7 +1,7 @@
 @import "style.css";
 
 .bg {
-    background-image: url("../icon/images/clouds.jpg");
+    background-image: url("../icon/images/clouds.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
