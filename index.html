@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html>
 	<head>
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
-      <link rel="stylesheet" href="css/normalize.css">
-     <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
-      <link rel="stylesheet" href="css/extra.css">
-      <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
+        <link rel="stylesheet" href="css/extra.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/recolor.css">
+
 		<title>DREAMWARE</title>
 	</head>
 	<body>
+    <div class="bg"></div>
         <div id="desktop">
           <div id="documents" class="desktop-item" onClick="openIcon(this.id)">
               <div class="icon"><img src=icon/images/icons/folder.png></div>
@@ -33,10 +37,10 @@
       </div>
       <!-- welcome fuck you -->
       <div id="hide" class="hidden">
-              <div id="fuckYou" class="window draggable">
+              <div id="you" class="window draggable">
                   <div id="fuckYouheader" class="title-bar">
                       <div class="title-bar-text">
-                      FUCK YOU!!
+                      SOULS OF DREAMWARE
                       </div>
           
                       <div class="title-bar-controls">
@@ -46,7 +50,12 @@
                       </div>
                   </div>
                   <div class="window-body">
-                      <img src="icon/images/icons/fireworks.gif" alt="fireworks gif">
+                    <div>Click a soul to learn more...</div><br />
+                    <section class="field-row" style="justify-content: flex-end">
+                      <button id="charlotte" onClick="memberIframe(this.id)" aria-label="Charlotte Laskowski">Charlotte Laskowski</button>
+                      <br />
+                      <button id="snow" onClick="memberIframe(this.id)" aria-label="Snow Battle">Snow Battle</button>
+                    </section>
                   </div>
               </div>
           </div>
@@ -111,10 +120,60 @@
       </div>
   </div>
 </div>
+
+        <!-- members browser -->
+        <div id="hide" class="hidden">
+            <div id="member-browser" class="window draggable">
+            <div id="internetheader" class="title-bar active">
+                <div class="title-bar-text">
+                DREAMNET
+                </div>
+
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button id="closeNet" onClick="openClose(this.id)" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                    <div>Address</div>
+                    <input style="width:570px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
+                    <br /><br />
+            </div>
+            <div class="content window-body">
+                <div class="content window-body" id="member-content"></div>
+            </div>
+            </div>
+        </div>
+
+        <!-- games browser -->
+        <div id="hide" class="hidden">
+            <div id="member-browser" class="window draggable">
+            <div id="internetheader" class="title-bar active">
+                <div class="title-bar-text">
+                DREAMNET
+                </div>
+
+                <div class="title-bar-controls">
+                    <button aria-label="Minimize"></button>
+                    <button aria-label="Maximize"></button>
+                    <button id="closeNet" onClick="openClose(this.id)" aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="window-body">
+                    <div>Address</div>
+                    <input style="width:570px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
+                    <br /><br />
+            </div>
+            <div class="content window-body">
+                <div class="member-content"></div>
+            </div>
+            </div>
+        </div>
   
 
         <!-- <h1 class="center">big hog games</h1> -->
-        <div class="center" id='cartweel-ring-5678'>
+       <!-- <div class="center" id='cartweel-ring-5678'>
           <script type="text/javascript" src="https://cartweel.neocities.org/Onion%20Ring/onionring-variables.js"></script>
           <script type="text/javascript" src="https://cartweel.neocities.org/Onion%20Ring/onionring-widget.js"></script>
         </div>
@@ -123,10 +182,11 @@
             <iframe title="newsletter" 
             src="https://news.bighog.games/"></iframe>
           </div>
-          <br />
+          <br />-->
   <script src="js/grab.js"></script>
   <script src="js/toggle.js"></script>
   <script type="text/javascript" src="js/tarot.js"></script>
+
 
 
 	</body>

@@ -5,23 +5,37 @@ function openClose(clicked_id) {
     targetDiv.classList.add('hidden');
 };
 
-// FUCK ME FUCK YOU
 function fuck(clicked_id) {
-    const fuckMe = document.getElementById("fuckMe");
-    const fuckYou = document.getElementById("fuckYou");
-
-    if (clicked_id == "me") {
-        let btn = fuckMe.closest("#hide");
-        change(fuckMe)
+    const games = document.getElementById("games");
+    const you = document.getElementById("you");
+    if (clicked_id == "games") {
+        let btn = games.closest("#hide");
+        change(games)
         btn.classList.remove('hidden');
-        //fuckMe.classList.toggle('container');
     } else if (clicked_id == "you") {
-        let btn = fuckYou.closest("#hide");
-        change(fuckYou)
+        let btn = you.closest("#hide");
+        change(you)
         btn.classList.remove('hidden');
-        //fuckYou.classList.toggle('container');
     };
 };
+
+function memberIframe(clicked_id) {
+    const addressBar = document.getElementById("members-address-bar")
+    const memberBrowser = document.getElementById("member-browser")
+    let btn = memberBrowser.closest("#hide");
+    change(memberBrowser)
+    btn.classList.remove('hidden');
+
+    if (clicked_id == "charlotte") {
+        source = "../members/charlotte.html"
+        address = "https://dreamware.press/members/charlotte.html"
+    } else if (clicked_id == "snow" ){
+        source = "../members/snow.html"
+        address = "https://dreamware.press/members/snow.html"
+    }
+    addressBar.value = address
+    $("#member-content").load(source + " #info");
+}
 
 function openIcon(clicked_id) {
     if (clicked_id == "documents") {

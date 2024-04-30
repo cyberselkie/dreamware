@@ -1,3 +1,12 @@
+:root {
+    /* CSS HEX */
+--pale-dogwood: #EDC6BFff;
+--rich-black: #011B24ff;
+--gunmetal: #03313Dff;
+--rosy-brown: #DA9793ff;
+--old-rose: #A96E6Eff;
+}
+
 /*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
 
 /*
@@ -95,15 +104,6 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.bg {
-    background-image: url("../icon/images/clouds.svg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    position: absolute;
-}
 
 /* center */
 .center {
@@ -183,6 +183,10 @@ iframe {
     border: 0px;
     height: 400px;
 }
+
+a {
+    color: var(--old-rose) !important;
+ }
 
 /* ADDING COLLAPSIBLE STUFF */
 

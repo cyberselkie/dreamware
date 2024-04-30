@@ -1,0 +1,7 @@
+
+.active {
+    background: linear-gradient(
+      90deg,
+      var(--old-rose),
+      var(--pale-dogwood));
+}

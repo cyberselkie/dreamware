@@ -11,8 +11,8 @@ function pickCard() {
         setTimeout(function() {
             const chosenCard = Math.floor(Math.random() * deck.length);
             displayCard(chosenCard);
-        }, 1000);
-    }, 1000);
+        }, 10);
+    }, 10);
 }
 
 pickCard()

@@ -1,16 +1,23 @@
 :root {
+    /* CSS HEX */
+--pale-dogwood: #EDC6BFff;
+--rich-black: #011B24ff;
+--gunmetal: #03313Dff;
+--rosy-brown: #DA9793ff;
+--old-rose: #A96E6Eff;
   /* Color */
-  --text-color: #222222;
+  --text-color: var(--rich-black);
   --surface: #c0c0c0;
   --button-highlight: #ffffff;
   --button-face: #dfdfdf;
   --button-shadow: #808080;
   --dialog-blue: #000080;
-  --dialog-blue-light: #1084d0;
+  --dialog-blue-light: var(--pale-dogwood);
   --dialog-gray: #808080;
   --dialog-gray-light: #b5b5b5;
-  --link-blue: #0000ff;
+  --link-blue: var(--gunmetal);
   --window-frame: #222222;
+
 
   /* Spacing */
   --element-spacing: 8px;
@@ -88,7 +95,8 @@
   }
 
 body {
-    background: #008080;
+    /* background: #008080; */
+    background: #fff;
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
@@ -221,12 +229,12 @@ text-decoration: none;
   background: #005959;
 }
 
-.content {
+/* .content {
   position: relative;
   float: left;
   width: 100%;
   height: 100%;
-}
+} */
 
 .content.white {
   background: white;
@@ -288,13 +296,6 @@ textarea:focus {
 #windows-start-menu-blue span {
   font-weight: 100;
   font-family: "Arial", sans-serif;
-}
-
-.content {
-  position: relative;
-  float: left;
-  width: 100%;
-  height: 100%;
 }
 
 #start-menu ul {
