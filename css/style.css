@@ -1,0 +1,519 @@
+:root {
+  /* Color */
+  --text-color: #222222;
+  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --dialog-blue: #000080;
+  --dialog-blue-light: #1084d0;
+  --dialog-gray: #808080;
+  --dialog-gray-light: #b5b5b5;
+  --link-blue: #0000ff;
+  --window-frame: #222222;
+
+  /* Spacing */
+  --element-spacing: 8px;
+  --grouped-button-spacing: 4px;
+  --grouped-element-spacing: 6px;
+  --radio-width: 12px;
+  --checkbox-width: 13px;
+  --radio-label-spacing: 6px;
+  --range-track-height: 4px;
+  --range-spacing: 10px;
+
+  /* Some detailed computations for radio buttons and checkboxes */
+  --radio-total-width-precalc: var(--radio-width) + var(--radio-label-spacing);
+  --radio-total-width: calc(var(--radio-total-width-precalc));
+  --radio-left: calc(-1 * var(--radio-total-width-precalc));
+  --radio-dot-width: 4px;
+  --radio-dot-top: calc(var(--radio-width) / 2 - var(--radio-dot-width) / 2);
+  --radio-dot-left: calc(
+    -1 * (var(--radio-total-width-precalc)) + var(--radio-width) / 2 - var(
+        --radio-dot-width
+      ) / 2
+  );
+
+  --checkbox-total-width-precalc: var(--checkbox-width) +
+    var(--radio-label-spacing);
+  --checkbox-total-width: calc(var(--checkbox-total-width-precalc));
+  --checkbox-left: calc(-1 * var(--checkbox-total-width-precalc));
+  --checkmark-width: 7px;
+  --checkmark-top: 3px;
+  --checkmark-left: 3px;
+
+  /* Borders */
+  --border-width: 1px;
+  --border-raised-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-face);
+  --border-sunken-outer: inset -1px -1px var(--button-highlight),
+    inset 1px 1px var(--window-frame);
+  --border-sunken-inner: inset -2px -2px var(--button-face),
+    inset 2px 2px var(--button-shadow);
+
+  /* Window borders flip button-face and button-highlight */
+  --border-window-outer: inset -1px -1px var(--window-frame),
+    inset 1px 1px var(--button-face);
+  --border-window-inner: inset -2px -2px var(--button-shadow),
+    inset 2px 2px var(--button-highlight);
+
+  /* Field borders (checkbox, input, etc) flip window-frame and button-shadow */
+  --border-field: inset -1px -1px var(--button-highlight),
+    inset 1px 1px var(--button-shadow), inset -2px -2px var(--button-face),
+    inset 2px 2px var(--window-frame);
+
+  /* Tabs */
+  --border-tab: inset -1px 0 var(--window-frame),
+    inset 1px 1px var(--button-face),
+    inset -2px 0 var(--button-shadow),
+    inset 2px 2px var(--button-highlight)
+}
+
+@font-face {
+    font-family: "Pixelated MS Sans Serif";
+    src: url("fonts/converted/ms_sans_serif.woff") format("woff");
+    src: url("fonts/converted/ms_sans_serif.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+@font-face {
+    font-family: "Pixelated MS Sans Serif";
+    src: url("fonts/converted/ms_sans_serif_bold.woff") format("woff");
+    src: url("fonts/converted/ms_sans_serif_bold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+  }
+
+body {
+    background: #008080;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    user-select: none;
+    font-weight: 300;
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+button,
+label,
+input,
+textarea,
+select,
+option,
+table,
+ul.tree-view,
+.window,
+.title-bar {
+  font-family: "Pixelated MS Sans Serif", Arial;
+  -webkit-font-smoothing: none;
+  font-size: 11px;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+u {
+  text-decoration: none;
+  border-bottom: 0.5px solid #222222;
+}
+
+.title-bar {
+  background: linear-gradient(90deg,grey,#b5b5b5);
+}
+
+.active {
+  background: linear-gradient(90deg,navy,#1084d0);
+}
+
+#start-bar {
+    background: #c0c0c0;
+    height: 1.5rem;
+    position: absolute;
+    bottom: 0;
+    width: calc(100% - 1rem);
+    display: flex;
+    padding: 0.5rem;
+    z-index: 999999999;
+    justify-content: space-between;
+    box-shadow: 0 -1px #fffdfc, 0 -2px #cce9eb;
+}
+
+#start-button {
+    background-image: url("../icons/happyOS.png");
+    width: 5.25rem;
+    background-size: auto 80%;
+    background-repeat: no-repeat;
+    background-position: 0.25rem;
+    cursor: pointer;
+    height: 1.5rem;
+    bottom: .25rem;
+    position: absolute;
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+    padding: 3px;
+}
+
+.windows-box-shadow, .minesweeper .content > label {
+    box-shadow: -2px -2px #e0dede, -2px 0 #e0dede, 0 -2px #e0dede, -4px -4px white, -4px 0 white, 0 -4px white, 2px 2px #818181, 0 2px #818181, 2px 0 #818181, 2px -2px #e0dede, -2px 2px #818181, -4px 2px white, -4px 4px black, 4px 4px black, 4px 0 black, 0 4px black, 2px -4px white, 4px -4px black;
+}
+
+#desktop {    
+  position: absolute;
+  top: 0;
+  padding: 0.5rem;
+  flex-wrap: wrap;
+  width: auto;
+  height: calc(100% - 3.75rem);
+  left: 0;
+  justify-content: flex-start;
+  align-items: flex-start;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop-item {
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  align-items: center;
+  border: 1px solid transparent;
+  flex-direction: column;
+  max-width: 7rem;
+  width: 75rem;
+  justify-content: center;
+  min-height: 6.25rem;
+  margin: 0 0 2rem 0;
+  padding: 0.25rem 0;
+}
+.desktop-item .icon {
+display: block;
+}
+.desktop-item img {
+  width: 3rem;
+}
+a.desktop-item {
+text-decoration: none;
+}
+.desktop-item .text {
+  display: inline;
+  margin: 0.5rem 0;
+  text-align: center;
+}
+
+.desktop-item:active .text {
+  background: #005959;
+}
+
+.content {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+.content.white {
+  background: white;
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  margin-top: 2px;
+}
+
+textarea {
+  width: 100%;
+  position: relative;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  top: 2px;
+  height: 100%;
+  border: none;
+  appearance: none;
+}
+textarea:focus {
+  outline: none;
+}
+
+#task-bar li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  margin-right: 30px;
+  width: 150px;
+  line-height: 60px;
+}
+
+#start-menu {
+  bottom: 2.75rem;
+  position: absolute;
+  background: #c0c0c0;
+  left: 0.25rem;
+  width: 20rem;
+  min-height: 24rem;
+  border-bottom: clear;
+}
+
+#windows-start-menu-blue {
+  color: white;
+  font-weight: 900;
+  position: absolute;
+  transform: rotateZ(-90deg);
+  width: 24.3rem;
+  font-size: 1.25rem;
+  font-family: "Arial Black", sans-serif;
+  background: #011590;
+  left: 0;
+  transform-origin: 0 0;
+  top: 24.3rem;
+  box-sizing: border-box;
+  padding: 0.125rem 1rem;
+}
+
+#windows-start-menu-blue span {
+  font-weight: 100;
+  font-family: "Arial", sans-serif;
+}
+
+.content {
+  position: relative;
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+
+#start-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#start-menu ul li label {
+  height: 4rem;
+  float: left;
+  cursor: pointer;
+  padding: 0 0.5rem 0 0.5rem;
+  margin: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: calc(100% - 3rem);
+}
+
+#start-menu > ul > li label:before {
+  width: 10px;
+  background: black;
+  content: '';
+  height: 1px;
+  position: absolute;
+  bottom: 20px;
+  left: 3rem;
+}
+#start-menu > ul > li label:first-of-type:before {
+  width: 14px;
+}
+
+
+#start-menu > ul > li label:hover:before {
+  background: white;
+}
+#start-menu ul li.line label {
+  box-shadow: 0 2px #808280, 0 4px white;
+}
+.line {
+  box-shadow: 0 2px #808280, 0 4px white;
+}
+#start-menu ul li img {
+  width: 2rem;
+  height: auto;
+  margin: 0 1rem 0 0;
+}
+#start-menu ul li label:hover {
+  background: #0c1b98;
+  color: white;
+  box-shadow: -8px 0 #0c1b98, 8px 0 #0c1b98;
+}
+
+.tab-box {
+  min-width: 30%;
+}
+.tab-header {
+  box-shadow: -1px -1px #e0dede, -2px 0 #e0dede, 0 -1px #e0dede, -2px 0 white, 0 -2px white, 1px 0 #818181, 1px -1px #818181, 2px 0 black;
+  float: left;
+  padding: 0.25rem;
+}
+.tab-box img {
+  width: 1rem;
+  float: left;
+  padding: 0 0.25rem 1rem 0;
+}
+.tab-box .box {
+  width: 100%;
+  background: white;
+  float: left;
+  border: 1px inset;
+  padding: 0;
+  position: relative;
+  left: -4px;
+  list-style: none;
+  margin: 0;
+}
+
+.tab-box .box label {
+  padding: 0.25rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+  float: left;
+}
+
+.help {
+  width: 35rem;
+  left: 15%;
+  margin-top: 0;
+  position: absolute;
+  top: 7.5rem;
+  height: 25rem;
+  min-height: 25rem;
+}
+
+.help .content {
+  background: white;
+  width: calc(100% - 2rem);
+  border: 2px inset;
+  margin: 0 0 0 1rem;    
+  min-height: 16rem;
+  overflow: scroll;
+  max-height: 16rem;
+  top: 1.6rem;
+}
+.help .tab-box-content {
+  display: flex;
+  margin: 1rem;
+}
+.tab-box-content .content > div {
+  display: none;
+}
+.tab-box-content #topic-1:checked ~ .content .topic-1-content,
+.tab-box-content #topic-2:checked ~ .content .topic-2-content,
+.tab-box-content #topic-3:checked ~ .content .topic-3-content,
+.tab-box-content #topic-4:checked ~ .content .topic-4-content {
+  display: block;
+}
+.tab-box-content #topic-1:checked ~ .tab-box ul label[for="topic-1"],
+.tab-box-content #topic-2:checked ~ .tab-box ul label[for="topic-2"],
+.tab-box-content #topic-3:checked ~ .tab-box ul label[for="topic-3"],
+.tab-box-content #topic-4:checked ~ .tab-box ul label[for="topic-4"] {
+  background: #000a7c;
+  color: white;
+}
+h2 {
+  margin: 0;
+}
+.tab-box-content .content > div {
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.options > div {
+  padding: 0 1rem 0 0;
+  opacity: 0.5;
+}
+.options.padding {
+  padding: 0.75rem 0.5rem 0.5rem 1.25rem;
+}
+.options.padding > input {
+  width: 100%;
+  padding: 0.25rem;
+  box-sizing: border-box;
+}
+.options .item.float-right {
+  position: absolute;
+  top: 0;
+  right: -1rem;
+  opacity: 1;
+}
+
+.window[role=tabpanel] {
+  position: relative;
+  z-index: 2;
+}
+
+menu[role=tablist] {
+  position: relative;
+  margin: 0 0 -2px 0;
+  text-indent: 0;
+  list-style-type: none;
+  display: flex;
+  padding-left: 3px;
+}
+
+menu[role=tablist] > li {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  box-shadow: var(--border-tab);
+  z-index: 1;
+}
+
+menu[role=tablist] > li[aria-selected=true] {
+  padding-bottom: 2px;
+  margin-top: -2px;
+  background-color: var(--surface);
+  position: relative;
+  z-index: 8;
+  margin-left: -3px;
+}
+
+menu[role=tablist] > li > a {
+  display: block;
+  color: #222;
+  margin: 6px;
+  text-decoration: none;
+}
+menu[role=tablist] > li[aria-selected=true] > a:focus {
+  outline: none;
+}
+menu[role=tablist] > li > a:focus {
+  outline: 1px dotted #222;
+}
+
+menu[role=tablist].multirows > li {
+  flex-grow: 1;
+  text-align: center;
+}
+
+input[type="submit" i] {
+  box-sizing: border-box;
+  border: none;
+  color: transparent;
+  text-shadow: 0 0 var(--text-color);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  border-radius: 0;
+
+  min-width: 75px;
+  min-height: 23px;
+  padding: 0 12px;
+}
+
+.start-window {
+    box-shadow: var(--border-window-outer), var(--border-window-inner);
+    background: var(--surface);
+    padding: 3px;
+  }

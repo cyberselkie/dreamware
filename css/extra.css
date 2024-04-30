@@ -1,0 +1,55 @@
+@import "style.css";
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+html, body, .container {
+    height: 100%;
+}
+.container {
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.draggable {
+    /* Doesn't allow to select the content inside */
+    user-select: none;
+    position: absolute;
+}
+
+.popup {
+    top: 45%;
+    left: 45%;
+}
+
+.top {
+    z-index:999;
+}
+
+.start-text {
+    display: inline !important;
+    font-family: "Pixelated MS Sans Serif", Arial;
+    -webkit-font-smoothing: none;
+    text-align:right !important;
+    padding-left: 1.75rem;
+    font-size: 1.35rem;
+}
+
+.email {
+    position: absolute;
+    z-index: 9999;
+}

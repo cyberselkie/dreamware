@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+	<head>
+      <meta charset="utf-8">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      <meta name="description" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <link rel="stylesheet" href="css/normalize.css">
+     <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
+      <link rel="stylesheet" href="css/extra.css">
+      <link rel="stylesheet" href="css/style.css">
+		<title>DREAMWARE</title>
+	</head>
+	<body>
+        <div id="desktop">
+          <div id="documents" class="desktop-item" onClick="openIcon(this.id)">
+              <div class="icon"><img src=icon/images/icons/folder.png></div>
+              <div class="text">Documents</div>
+          </div>
+          <div id="outlook-icon" class="desktop-item" onClick="openIcon(this.id)">
+              <div class="icon"><img src=icon/images/icons/outlook_express-5.png></div>
+              <div class="text">HapE-Mail</div>
+          </div>
+          <div id="internet-icon" class="desktop-item" onClick="openIcon(this.id)">
+              <div id="dragheader" class="icon"><img src=icon/images/icons/utopia_smiley.png></div>
+              <div class="text">HappyNet</div>
+          </div>
+          <div id="chat-icon" class="desktop-item" onClick="openIcon(this.id)">
+              <div class="icon"><img src=icon/images/icons/laptop_infrared.png></div>
+              <div class="text">Your Future</div>
+          </div>
+      </div>
+      <!-- welcome fuck you -->
+      <div id="hide" class="hidden">
+              <div id="fuckYou" class="window draggable">
+                  <div id="fuckYouheader" class="title-bar">
+                      <div class="title-bar-text">
+                      FUCK YOU!!
+                      </div>
+          
+                      <div class="title-bar-controls">
+                      <button aria-label="Minimize"></button>
+                      <button aria-label="Maximize"></button>
+                      <button id="closeYou" onClick="openClose(this.id)" aria-label="Close"></button>
+                      </div>
+                  </div>
+                  <div class="window-body">
+                      <img src="icon/images/icons/fireworks.gif" alt="fireworks gif">
+                  </div>
+              </div>
+          </div>
+          <div id="hide" class="hidden">
+              <div id="fuckMe" class="window draggable">
+                  <div id="fuckMeheader" class="title-bar">
+                      <div class="title-bar-text">
+                      FUCK ME!!
+                      </div>
+          
+                      <div class="title-bar-controls">
+                      <button aria-label="Minimize"></button>
+                      <button aria-label="Maximize"></button>
+                      <button id="closeMe" onClick="openClose(this.id)" aria-label="Close"></button>
+                      </div>
+                  </div>
+                  <div class="window-body">
+                      <img src="icon/images/icons/dancing-kid.gif" alt="dancing kid gif">
+                  </div>
+              </div>
+          </div>
+  
+      <!-- welcome -->
+          <div id="hide">
+              <div id="welcome" class="window draggable popup">
+              <div id="welcomeheader" class="title-bar active">
+                  <div class="title-bar-text">
+                  WELCOME TO THE DREAMWARE HOMEPAGE
+                  </div>
+  
+                  <div class="title-bar-controls">
+                  <button aria-label="Help"></button>
+                  <button id="closeWelcome" onClick="openClose(this.id)" aria-label="Close"></button>
+                  </div>
+              </div>
+              <div class="window-body">
+                  <p>What do you dream of?</p>
+                  <section class="field-row" style="justify-content: flex-end">
+                  <button id="me" onClick="fuck(this.id)">GAMES</button>
+                 <!-- <a href="https://store.dreamware.press"><button id="shop-link">SHOP</button></a> -->
+                  <button id="you" onClick="fuck(this.id)">YOU</button>
+                  </section>
+              </div>
+              </div>
+          </div>
+
+    <!-- chat box -->
+    <div id="hide" class="hidden">
+      <div id="chat" class="window draggable">
+      <div id="chatheader" class="title-bar active">
+          <div class="title-bar-text">
+          YOUR FUTURE...
+          </div>
+
+          <div class="title-bar-controls">
+              <button aria-label="Minimize"></button>
+              <button aria-label="Maximize"></button>
+              <button id="closeChat" onClick="openClose(this.id)" aria-label="Close"></button>
+          </div>
+      </div>
+      <div class="window-body"><pre id="tarot"></pre>
+      </div>
+  </div>
+</div>
+  
+
+        <!-- <h1 class="center">big hog games</h1> -->
+        <div class="center" id='cartweel-ring-5678'>
+          <script type="text/javascript" src="https://cartweel.neocities.org/Onion%20Ring/onionring-variables.js"></script>
+          <script type="text/javascript" src="https://cartweel.neocities.org/Onion%20Ring/onionring-widget.js"></script>
+        </div>
+        <br />
+          <div class="center">
+            <iframe title="newsletter" 
+            src="https://news.bighog.games/"></iframe>
+          </div>
+          <br />
+  <script src="js/grab.js"></script>
+  <script src="js/toggle.js"></script>
+  <script type="text/javascript" src="js/tarot.js"></script>
+
+
+	</body>
+</html>
+
