@@ -1,9 +1,11 @@
+if ($(window).width() > 530) {
+
 var draggableElements = document.getElementsByClassName("draggable");
 
 for(var i = 0; i < draggableElements.length; i++){
     dragElement(draggableElements[i]);
 }
-if ($(window).width() > 430) {
+
 
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
