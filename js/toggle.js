@@ -18,7 +18,7 @@ function fuck(clicked_id) {
         btn.classList.remove('hidden');
     };
 };
-baseURL = "https://dreamware-test.netlify.app/"
+baseURL = "https://dreamware-test.netlify.app"
 function memberIframe(clicked_id) {
     const addressBar = document.getElementById("members-address-bar")
     const memberBrowser = document.getElementById("member-browser")
