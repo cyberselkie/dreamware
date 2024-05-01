@@ -104,8 +104,8 @@ function openURL(clicked_id) {
 
 // random location for popups
 function change(btn) {
-    var i = Math.floor(Math.random()*500)+1;
+    var i = Math.floor(Math.random()*700)+1;
     var j = Math.floor(Math.random()*300)+1;
-    btn.style.left = i+"px";
-    btn.style.top = j+"px";
+    btn.style.left = 0;
+    btn.style.top = 0;
 }
