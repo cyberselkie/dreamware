@@ -6,6 +6,8 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+
 
         <link rel="stylesheet" href="css/normalize.css">
         <link rel="stylesheet" href="https://unpkg.com/98.css@0.1.4/build/98.css" />
@@ -60,10 +62,10 @@
               </div>
           </div>
           <div id="hide" class="hidden">
-              <div id="fuckMe" class="window draggable">
+              <div id="games" class="window draggable">
                   <div id="fuckMeheader" class="title-bar">
                       <div class="title-bar-text">
-                      FUCK ME!!
+                      GAMES
                       </div>
           
                       <div class="title-bar-controls">
@@ -73,7 +75,16 @@
                       </div>
                   </div>
                   <div class="window-body">
-                      <img src="icon/images/icons/dancing-kid.gif" alt="dancing kid gif">
+                    <div>What do you seek?</div><br />
+                    <section class="field-row" style="justify-content: flex-end">
+                        <button id="songbirds-blue" onClick="gameFrame(this.id)" aria-label="Songbirds Blue">Songbirds Blue</button>
+                        <br />
+                        <button id="daisy-chainsaw" onClick="gameFrame(this.id)" aria-label="Daisy Chainsaw">Daisy Chainsaw</button>
+                        <br />
+                        <button id="dotdungeon" onClick="gameFrame(this.id)" aria-label="Dot Dungeon Remastered">.dungeon//remastered</button>
+                        <br />
+                        <button id="brats" onClick="gameFrame(this.id)" aria-label="brats">Brats</button>
+                      </section>
                   </div>
               </div>
           </div>
@@ -94,7 +105,7 @@
               <div class="window-body">
                   <p>What do you dream of?</p>
                   <section class="field-row" style="justify-content: flex-end">
-                  <button id="me" onClick="fuck(this.id)">GAMES</button>
+                  <button id="games" onClick="fuck(this.id)">GAMES</button>
                  <!-- <a href="https://store.dreamware.press"><button id="shop-link">SHOP</button></a> -->
                   <button id="you" onClick="fuck(this.id)">YOU</button>
                   </section>
@@ -126,47 +137,45 @@
             <div id="member-browser" class="window draggable">
             <div id="internetheader" class="title-bar active">
                 <div class="title-bar-text">
-                DREAMNET
+                DREAMNET USERS
                 </div>
 
                 <div class="title-bar-controls">
                     <button aria-label="Minimize"></button>
-                    <button aria-label="Maximize"></button>
+                    <button id="maxNet" aria-label="Maximize" onClick="openURL(this.id)"></button>
                     <button id="closeNet" onClick="openClose(this.id)" aria-label="Close"></button>
                 </div>
             </div>
             <div class="window-body">
                     <div>Address</div>
-                    <input style="width:570px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
+                    <input style="width:500px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
                     <br /><br />
             </div>
-            <div class="content window-body">
-                <div class="content window-body" id="member-content"></div>
+            <div class="content window-body" id="member-content" style="width: 496px; max-height: 400px; overflow-y: scroll;">
             </div>
             </div>
         </div>
 
         <!-- games browser -->
         <div id="hide" class="hidden">
-            <div id="member-browser" class="window draggable">
+            <div id="game-browser" class="window draggable">
             <div id="internetheader" class="title-bar active">
                 <div class="title-bar-text">
-                DREAMNET
+                DREAMNET GAMES
                 </div>
 
                 <div class="title-bar-controls">
                     <button aria-label="Minimize"></button>
-                    <button aria-label="Maximize"></button>
-                    <button id="closeNet" onClick="openClose(this.id)" aria-label="Close"></button>
+                    <button id="maxGames" aria-label="Maximize" onClick="openURL(this.id)"></button>
+                    <button id="closeGame" onClick="openClose(this.id)" aria-label="Close"></button>
                 </div>
             </div>
             <div class="window-body">
                     <div>Address</div>
-                    <input style="width:570px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
+                    <input style="width:500px;" type="text" id="game-address-bar" value="https://dreamware.press/games/" />
                     <br /><br />
             </div>
-            <div class="content window-body">
-                <div class="member-content"></div>
+            <div class="content window-body" id="game-content" style="width: 496px; max-height: 400px; overflow-y: scroll;">
             </div>
             </div>
         </div>

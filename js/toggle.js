@@ -18,13 +18,16 @@ function fuck(clicked_id) {
         btn.classList.remove('hidden');
     };
 };
-
+baseURL = "https://dreamware-test.netlify.app/"
 function memberIframe(clicked_id) {
     const addressBar = document.getElementById("members-address-bar")
     const memberBrowser = document.getElementById("member-browser")
+    const memberContent = document.getElementById("member-content")
+
     let btn = memberBrowser.closest("#hide");
     change(memberBrowser)
     btn.classList.remove('hidden');
+    url = baseURL + "/members/"
 
     if (clicked_id == "charlotte") {
         source = "../members/charlotte.html"
@@ -34,7 +37,33 @@ function memberIframe(clicked_id) {
         address = "https://dreamware.press/members/snow.html"
     }
     addressBar.value = address
-    $("#member-content").load(source + " #info");
+    $(memberContent).load(source + " #aboutme");
+
+}
+
+function gameFrame(clicked_id) {
+    const addressBar = document.getElementById("game-address-bar")
+    const memberBrowser = document.getElementById("game-browser")
+    let btn = memberBrowser.closest("#hide");
+    change(memberBrowser);
+    btn.classList.remove('hidden');
+    url = baseURL + "/games/"
+
+    if (clicked_id == "daisy-chainsaw") {
+        source = "../games/daisychainsaw.html"
+        address = url + "daisychainsaw.html";
+    } else if (clicked_id == "dotdungeon" ){
+        source = "../games/dotdungeon.html";
+        address = url + "dotdungeon.html";
+    } else if (clicked_id == "songbirds-blue" ){
+        source = "../games/songbirds3e.html"
+        address = url + "songbirds3e.html"
+    } else if (clicked_id == "brats" ){
+        source = "../games/brats.html"
+        address = url + "brats.html"
+    }
+    addressBar.value = address
+    $("#game-content").load(source + " #game-text");
 }
 
 function openIcon(clicked_id) {
@@ -61,26 +90,22 @@ function openIcon(clicked_id) {
     }
 };
 
+function openURL(clicked_id) {
+    if (clicked_id == "maxNet") {
+        const btn = document.getElementById("members-address-bar");
+        url = btn.value
+        window.open(url)
+    } else if (clicked_id == "maxGames") {
+        const btn = document.getElementById("game-address-bar");
+        url = btn.value
+        window.open(url)
+    }
+};
+
 // random location for popups
 function change(btn) {
-    var i = Math.floor(Math.random()*1000)+1;
-    var j = Math.floor(Math.random()*500)+1;
+    var i = Math.floor(Math.random()*500)+1;
+    var j = Math.floor(Math.random()*300)+1;
     btn.style.left = i+"px";
     btn.style.top = j+"px";
 }
-
-$('#start-menu-btn').change(function() {
-    $('#start-menu').toggle();
-});
-
-const helpBtn = document.getElementById('help-menu-btn')
-helpBtn.addEventListener('click', function(){
-    document.getElementById('help').closest('#hide').classList.remove('hidden');
-    $('#start-menu').toggle();
-});
-
-function message() {
-    document.getElementById("chat-box-text").innerHTML = "<moose> irc chat.sadslut.club #happy99 \n<moose> got it?";
- }
- setTimeout(message,180 * 1000);
-
