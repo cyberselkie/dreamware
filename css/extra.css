@@ -1,6 +1,6 @@
 @import "style.css";
 
-.bg {
+#bg {
     background-image: url("../icon/images/clouds.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -31,16 +31,14 @@ function memberIframe(clicked_id) {
 
     if (clicked_id == "charlotte") {
         source = "../members/charlotte.html"
-        address = "https://dreamware.press/members/charlotte.html"
+        address = url + "charlotte.html"
     } else if (clicked_id == "snow" ){
         source = "../members/snow.html"
-        address = "https://dreamware.press/members/snow.html"
+        address = url + "snow.html"
     }
-    addressBar.value = address
+    addressBar.value = address;
     $(memberContent).load(source + " #aboutme");
-
 }
-
 function gameFrame(clicked_id) {
     const addressBar = document.getElementById("game-address-bar")
     const memberBrowser = document.getElementById("game-browser")
@@ -109,3 +107,18 @@ function change(btn) {
     btn.style.left = i+"vw";
     btn.style.top = j+"vh";
 }
+
+
+// change background image depending on user time
+function timeBG() {
+    const bg_image = document.getElementById("bg");
+    let current_hour = new Date().getHours();
+    if (current_hour <= 5 && current_hour >= 20) { // night time
+        bg_image.style.backgroundImage = "url('../icon/images/clouds.webp')";
+    } else if (current_hour > 5 && current_hour <= 10) {
+        bg_image.style.backgroundImage = "url('../icon/images/morning.jpg')";
+    } else {
+        bg_image.style.backgroundImage = "url('../icon/images/day.jpg')";
+    }
+}
+timeBG()

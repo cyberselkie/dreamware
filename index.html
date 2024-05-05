@@ -17,7 +17,7 @@
 	</head>
 	<body>
     <div class="popups">
-    <div class="bg"></div>
+    <div id="bg"></div>
         <div id="desktop">
           <div id="documents" class="desktop-item" onClick="openIcon(this.id)">
               <div class="icon"><img src=icon/images/icons/folder.png></div>
@@ -25,8 +25,16 @@
           </div>
           <div id="chat-icon" class="desktop-item" onClick="openIcon(this.id)">
               <div class="icon"><img src=icon/images/icons/laptop_infrared.png></div>
-              <div class="text">Your Future</div>
+              <div class="text">Your Fortune</div>
           </div>
+          <a href="https://snowttrpg.itch.io" style="text-decoration: none;"><div id="snow-ttrpg" class="desktop-item">
+            <div class="icon"><img src=icon/images/icons/paint_old-0.png></div>
+            <div class="text">Snow's Games</div>
+        </div></a>
+        <a href="https://selkie.itch.io" style="text-decoration: none;"><div id="char-ttrpg" class="desktop-item">
+            <div class="icon"><img src=icon/images/icons/joystick-5.png></div>
+            <div class="text">Char's Games</div>
+        </div></a>
       </div>
       <!-- welcome fuck you -->
       <div id="hide" class="hidden">
@@ -142,7 +150,7 @@
                     <input style="width:500px;" type="text" id="members-address-bar" value="https://dreamware.press/members/" />
                     <br /><br />
             </div>
-            <div class="content window-body" id="member-content" style="width: 496px; max-height: 400px; overflow-y: scroll;">
+            <div class="content window-body" style="width: 496px; max-height: 400px; overflow-y: scroll;">Hit the maximize button to open in another window.<br /><div  id="members-content"></div>
             </div>
             </div>
         </div>
@@ -166,7 +174,7 @@
                     <input style="width:500px;" type="text" id="game-address-bar" value="https://dreamware.press/games/" />
                     <br /><br />
             </div>
-            <div class="content window-body" id="game-content" style="width: 496px; max-height: 400px; overflow-y: scroll;">
+            <div class="content window-body" style="width: 496px; max-height: 400px; overflow-y: scroll;">Hit the maximize button to open in another window.<br /><div  id="game-content"></div>
             </div>
             </div>
         </div>
