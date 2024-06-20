@@ -30,10 +30,10 @@ function memberIframe(clicked_id) {
     url = baseURL + "/members/"
 
     if (clicked_id == "charlotte") {
-        source = "../members/charlotte.html"
+        source = "members/charlotte.html"
         address = url + "charlotte.html"
     } else if (clicked_id == "snow" ){
-        source = "../members/snow.html"
+        source = "members/snow.html"
         address = url + "snow.html"
     }
     addressBar.value = address;
