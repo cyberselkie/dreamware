@@ -1,6 +1,6 @@
 # Redirects from what the browser requests to what we serve
 /index.html     /
 /games/*        /*
-/dullscythe     https://www.backerkit.com/call_to_action/c3912986-3cc0-4f90-9b22-1f0f6a61579c/landing&ref=dreamware
+/dullscythe     https://www.backerkit.com/call_to_action/c3912986-3cc0-4f90-9b22-1f0f6a61579c/landing
 
 
