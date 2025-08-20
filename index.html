@@ -127,6 +127,18 @@
               </div>
               <div class="window-body">
                   <p>What do you dream of?</p>
+				  <div>    
+					<form action="https://news.dreamware.press/subscribe" method="POST" name="newsletter_subscribe">
+			        <p id="sub"></p>
+			        <p><label for="email">Email:</label>
+			        <input type="text" name="email" id="email"></p>
+			
+			        <p><label for="name">Name:</label>
+			        <input type="text" name="name" id="name"></p>
+			
+			        <input class="submit" value="Subscribe" type="submit" onclick="handleFormSubmit">
+			    	</form>
+				  </div>
                   <section class="field-row" style="justify-content: flex-end">
                   <button id="games" onClick="fuck(this.id)">GAMES</button>
                  <!-- <a href="https://store.dreamware.press"><button id="shop-link">SHOP</button></a> -->
